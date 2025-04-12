@@ -59,22 +59,6 @@ with col2:
         index=8  # Default to INR
     )
 
-# Add a button to swap currencies
-col1, col2, col3 = st.columns([1, 1, 1])
-with col2:
-    if st.button("↔️ Swap Currencies"):
-        # Store current selections
-        temp_from = from_currency
-        temp_to = to_currency
-        
-        # Get the indices
-        from_index = list(currency_options.keys()).index(temp_from)
-        to_index = list(currency_options.keys()).index(temp_to)
-        
-        # Update session state to force re-render with swapped selections
-        st.session_state['from_currency_index'] = to_index
-        st.session_state['to_currency_index'] = from_index
-        st.rerun()
 
 # Convert button
 if st.button("🔍 Get Rate & News", type="primary"):
